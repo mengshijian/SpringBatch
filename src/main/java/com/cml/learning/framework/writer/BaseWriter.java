@@ -33,7 +33,8 @@ public abstract class BaseWriter<T> implements ItemWriter<T> {
 	/**
 	 * STEP参数保存
 	 * 
-	 * @param exitStatus
+	 * @param key
+	 * @param Value
 	 */
 	public void saveStepParameter(String key, String Value) {
 		this.stepExecution.getJobExecution().getExecutionContext().putString(key, Value);
@@ -42,7 +43,8 @@ public abstract class BaseWriter<T> implements ItemWriter<T> {
 	/**
 	 * STEP参数保存
 	 * 
-	 * @param exitStatus
+	 * @param key
+	 * @param Value
 	 */
 	public void saveStepParameter(String key, long Value) {
 		this.stepExecution.getJobExecution().getExecutionContext().putLong(key, Value);
@@ -51,7 +53,8 @@ public abstract class BaseWriter<T> implements ItemWriter<T> {
 	/**
 	 * STEP参数保存
 	 * 
-	 * @param exitStatus
+	 * @param key
+	 * @param Value
 	 */
 	public void saveStepParameter(String key, int Value) {
 		this.stepExecution.getJobExecution().getExecutionContext().putInt(key, Value);
@@ -60,7 +63,8 @@ public abstract class BaseWriter<T> implements ItemWriter<T> {
 	/**
 	 * STEP参数保存
 	 * 
-	 * @param exitStatus
+	 * @param key
+	 * @param Value
 	 */
 	public void saveStepParameter(String key, Object Value) {
 		this.stepExecution.getJobExecution().getExecutionContext().put(key, Value);
@@ -69,7 +73,8 @@ public abstract class BaseWriter<T> implements ItemWriter<T> {
 	/**
 	 * STEP参数保存
 	 * 
-	 * @param exitStatus
+	 * @param key
+	 * @param value
 	 */
 	public void saveStepParameter(String key, List<Object> value) {
 		this.stepExecution.getJobExecution().getExecutionContext().put(key, value);
@@ -78,7 +83,7 @@ public abstract class BaseWriter<T> implements ItemWriter<T> {
 	/**
 	 * STEP参数取得
 	 * 
-	 * @param exitStatus
+	 * @param key
 	 */
 	public Object getStepParameter(String key) {
 		return this.stepExecution.getJobExecution().getExecutionContext().get(key);
@@ -87,7 +92,7 @@ public abstract class BaseWriter<T> implements ItemWriter<T> {
 	/**
 	 * STEP参数取得
 	 * 
-	 * @param exitStatus
+	 * @param key
 	 */
 	public String getStringStepParameter(String key) {
 		return this.stepExecution.getJobExecution().getExecutionContext().getString(key);
@@ -96,7 +101,7 @@ public abstract class BaseWriter<T> implements ItemWriter<T> {
 	/**
 	 * STEP参数取得
 	 * 
-	 * @param exitStatus
+	 * @param key
 	 */
 	public long getLongStepParameter(String key) {
 		return this.stepExecution.getJobExecution().getExecutionContext().getLong(key, 0);
@@ -105,7 +110,7 @@ public abstract class BaseWriter<T> implements ItemWriter<T> {
 	/**
 	 * STEP参数取得
 	 * 
-	 * @param exitStatus
+	 * @param key
 	 */
 	public int getIntStepParameter(String key) {
 		return this.stepExecution.getJobExecution().getExecutionContext().getInt(key, 0);
@@ -114,7 +119,7 @@ public abstract class BaseWriter<T> implements ItemWriter<T> {
 	/**
 	 * STEP参数递增(+1)
 	 * 
-	 * @param exitStatus
+	 * @param key
 	 */
 	public void addLongStepParameter(String key) {
 		this.addLongStepParameter(key, 1);
@@ -123,7 +128,8 @@ public abstract class BaseWriter<T> implements ItemWriter<T> {
 	/**
 	 * STEP参数递增
 	 * 
-	 * @param exitStatus
+	 * @param key
+	 * @param cnt
 	 */
 	public void addLongStepParameter(String key, long cnt) {
 		long value = this.getLongStepParameter(key);
@@ -134,7 +140,7 @@ public abstract class BaseWriter<T> implements ItemWriter<T> {
 	/**
 	 * STEP参数递增(+1)
 	 * 
-	 * @param exitStatus
+	 * @param key
 	 */
 	public void addIntStepParameter(String key) {
 		this.addIntStepParameter(key, 1);
@@ -143,7 +149,8 @@ public abstract class BaseWriter<T> implements ItemWriter<T> {
 	/**
 	 * STEP参数递增
 	 * 
-	 * @param exitStatus
+	 * @param key
+	 * @param cnt
 	 */
 	public void addIntStepParameter(String key, int cnt) {
 		int value = this.getIntStepParameter(key);

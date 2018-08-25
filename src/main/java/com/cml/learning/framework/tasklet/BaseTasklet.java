@@ -40,7 +40,6 @@ public abstract class BaseTasklet implements Tasklet {
 	/**
 	 * STEP参数保存
 	 * 
-	 * @param exitStatus
 	 */
 	public ExecutionContext getExecutionContext() {
 		return this.chunkContext.getStepContext().getStepExecution().getJobExecution().getExecutionContext();
@@ -49,7 +48,8 @@ public abstract class BaseTasklet implements Tasklet {
 	/**
 	 * STEP参数保存
 	 * 
-	 * @param exitStatus
+	 * @param key
+	 * @param Value
 	 */
 	public void saveStepParameter(String key, String Value) {
 		this.getExecutionContext().putString(key, Value);
@@ -58,7 +58,8 @@ public abstract class BaseTasklet implements Tasklet {
 	/**
 	 * STEP参数保存
 	 * 
-	 * @param exitStatus
+	 * @param key
+	 * @param Value
 	 */
 	public void saveStepParameter(String key, long Value) {
 		this.getExecutionContext().putLong(key, Value);
@@ -67,7 +68,8 @@ public abstract class BaseTasklet implements Tasklet {
 	/**
 	 * STEP参数保存
 	 * 
-	 * @param exitStatus
+	 * @param key
+	 * @param Value
 	 */
 	public void saveStepParameter(String key, int Value) {
 		this.getExecutionContext().putInt(key, Value);
@@ -76,7 +78,8 @@ public abstract class BaseTasklet implements Tasklet {
 	/**
 	 * STEP参数保存
 	 * 
-	 * @param exitStatus
+	 * @param key
+	 * @param Value
 	 */
 	public void saveStepParameter(String key, Object Value) {
 		this.getExecutionContext().put(key, Value);
@@ -85,7 +88,8 @@ public abstract class BaseTasklet implements Tasklet {
 	/**
 	 * STEP参数保存
 	 * 
-	 * @param exitStatus
+	 * @param key
+	 * @param value
 	 */
 	public void saveStepParameter(String key, List<Object> value) {
 		this.getExecutionContext().put(key, value);
@@ -94,7 +98,7 @@ public abstract class BaseTasklet implements Tasklet {
 	/**
 	 * STEP参数取得
 	 * 
-	 * @param exitStatus
+	 * @param key
 	 */
 	public List<Object> getListStepParameter(String key) {
 		List<Object> list = new ArrayList<Object>();
@@ -108,7 +112,7 @@ public abstract class BaseTasklet implements Tasklet {
 	/**
 	 * STEP参数取得
 	 * 
-	 * @param exitStatus
+	 * @param key
 	 */
 	public Object getStepParameter(String key) {
 		return this.getExecutionContext().get(key);
@@ -117,7 +121,7 @@ public abstract class BaseTasklet implements Tasklet {
 	/**
 	 * STEP参数取得
 	 * 
-	 * @param exitStatus
+	 * @param key
 	 */
 	public String getStringStepParameter(String key) {
 		return this.getExecutionContext().getString(key);
@@ -126,7 +130,7 @@ public abstract class BaseTasklet implements Tasklet {
 	/**
 	 * STEP参数取得
 	 * 
-	 * @param exitStatus
+	 * @param key
 	 */
 	public long getLongStepParameter(String key) {
 		return this.getExecutionContext().getLong(key);
@@ -135,7 +139,7 @@ public abstract class BaseTasklet implements Tasklet {
 	/**
 	 * STEP参数取得
 	 * 
-	 * @param exitStatus
+	 * @param key
 	 */
 	public int getIntStepParameter(String key) {
 		return this.getExecutionContext().getInt(key);
@@ -144,7 +148,7 @@ public abstract class BaseTasklet implements Tasklet {
 	/**
 	 * STEP参数递增(+1)
 	 * 
-	 * @param exitStatus
+	 * @param key
 	 */
 	public void addLongStepParameter(String key) {
 		this.addLongStepParameter(key, 1);
@@ -153,7 +157,8 @@ public abstract class BaseTasklet implements Tasklet {
 	/**
 	 * STEP参数递增
 	 * 
-	 * @param exitStatus
+	 * @param key
+	 * @param cnt
 	 */
 	public void addLongStepParameter(String key, long cnt) {
 		long value = this.getLongStepParameter(key);
@@ -164,7 +169,7 @@ public abstract class BaseTasklet implements Tasklet {
 	/**
 	 * STEP参数递增(+1)
 	 * 
-	 * @param exitStatus
+	 * @param key
 	 */
 	public void addIntStepParameter(String key) {
 		this.addIntStepParameter(key, 1);
@@ -173,7 +178,8 @@ public abstract class BaseTasklet implements Tasklet {
 	/**
 	 * STEP参数递增
 	 * 
-	 * @param exitStatus
+	 * @param key
+	 * @param cnt
 	 */
 	public void addIntStepParameter(String key, int cnt) {
 		int value = this.getIntStepParameter(key);
@@ -184,7 +190,8 @@ public abstract class BaseTasklet implements Tasklet {
 	/**
 	 * STEP参数 增加 （list）
 	 * 
-	 * @param exitStatus
+	 * @param key
+	 * @param value
 	 */
 	public void addListStepParameter(String key, Object value) {
 		List<Object> list = this.getListStepParameter(key);
@@ -197,7 +204,8 @@ public abstract class BaseTasklet implements Tasklet {
 	/**
 	 * STEP参数 减少 （list）
 	 * 
-	 * @param exitStatus
+	 * @param key
+	 * @param value
 	 */
 	public void removeListStepParameter(String key, Object value) {
 		List<Object> list = this.getListStepParameter(key);
@@ -210,7 +218,8 @@ public abstract class BaseTasklet implements Tasklet {
 	/**
 	 * STEP参数保存
 	 * 
-	 * @param exitStatus
+	 * @param key
+	 * @param value
 	 */
 	public void saveStepParameter(String key, Map<String, Object> value) {
 		this.getExecutionContext().put(key, value);

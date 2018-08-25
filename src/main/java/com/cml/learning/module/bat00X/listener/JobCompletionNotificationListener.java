@@ -12,7 +12,7 @@ import com.cml.learning.module.bat00X.Bat00XModule;
 import com.cml.learning.module.bat00X.beans.LogBean;
 import com.cml.learning.module.bat00X.db.Bat00XWriteMapper;
 
-@Component()
+@Component
 public class JobCompletionNotificationListener extends JobExecutionListenerSupport {
 
 	private static final Logger log = LoggerFactory.getLogger(JobCompletionNotificationListener.class);

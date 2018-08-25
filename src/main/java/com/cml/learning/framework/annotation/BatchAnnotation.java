@@ -1,5 +1,6 @@
 package com.cml.learning.framework.annotation;
 
+import com.cml.learning.framework.configuration.SimpleBatchConfiguration;
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Inherited;
@@ -16,7 +17,6 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 
-import com.cml.learning.framework.configuration.SimpleBatchConfiguration;
 import com.cml.learning.framework.constant.ModuleConst;
 
 @Target(ElementType.TYPE)
@@ -24,8 +24,8 @@ import com.cml.learning.framework.constant.ModuleConst;
 @Documented
 @Inherited
 @SpringBootApplication(exclude = { DataSourceAutoConfiguration.class })
+//@EnableBatchProcessing
 @Import({ SimpleBatchConfiguration.class })
-@EnableBatchProcessing
 @ComponentScan
 @ComponentScans({ @ComponentScan(ModuleConst.Framwwork.PACKAGE_FRAMEWORK) })
 @PropertySources({ @PropertySource(ModuleConst.Framwwork.DB_CONFIG_RW), @PropertySource(ModuleConst.Framwwork.DB_CONFIG_R) })

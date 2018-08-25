@@ -1,18 +1,14 @@
 package com.cml.learning.framework.util;
 
 import java.sql.Timestamp;
-import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-import java.util.TimeZone;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.joda.time.DateTime;
@@ -32,7 +28,7 @@ public class DateUtil {
 
 	public static final int RESULT_SUCCESS = 0;
 
-	/** フォーマット : YYYY/MM/DD HH:MI */
+	/** format : YYYY/MM/DD HH:MI */
 	private static final SimpleDateFormat DF_YMDHMS = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 
 	/** Validate Methods */
@@ -98,10 +94,8 @@ public class DateUtil {
 	/**
 	 * 日付文字チェック
 	 * 
-	 * @param String
-	 *            str
-	 * @param String
-	 *            format YYYY/MM/DD
+	 * @param str
+	 * @param format
 	 * @return
 	 */
 	public static boolean validateDateFormat(String str, String format) {

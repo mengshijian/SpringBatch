@@ -1,10 +1,14 @@
 package com.cml.learning.module.bat00X;
 
+import com.cml.learning.module.bat00X.beans.Person;
+import com.cml.learning.module.bat00X.listener.JobCompletionNotificationListener;
+import com.cml.learning.module.bat00X.processor.PersonItemProcessor;
+import com.cml.learning.module.bat00X.reader.PersonReader;
+import com.cml.learning.module.bat00X.writer.PersonWriter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
-import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.core.launch.support.RunIdIncrementer;
@@ -14,14 +18,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
-import com.cml.learning.module.bat00X.beans.Person;
-import com.cml.learning.module.bat00X.listener.JobCompletionNotificationListener;
-import com.cml.learning.module.bat00X.processor.PersonItemProcessor;
-import com.cml.learning.module.bat00X.reader.PersonReader;
-import com.cml.learning.module.bat00X.writer.PersonWriter;
-
 @Configuration
-@EnableBatchProcessing
 public class Bat00XConfiguration {
 
 	private static final Logger log = LoggerFactory.getLogger(Bat00XConfiguration.class);
@@ -35,7 +32,6 @@ public class Bat00XConfiguration {
 	@Autowired
 	private PersonWriter personWriter;
 
-	// tag::readerwriterprocessor[]
 	@Bean
 	@Scope("prototype")
 	public ItemReader<Person> reader() {
@@ -46,10 +42,6 @@ public class Bat00XConfiguration {
 	public PersonItemProcessor processor() {
 		return new PersonItemProcessor();
 	}
-
-	// end::readerwriterprocessor[]
-
-	// tag::jobstep[]
 
 	@Bean
 	public Job importUserJob(JobCompletionNotificationListener listener) {

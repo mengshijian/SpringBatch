@@ -1,17 +1,16 @@
 package com.cml.learning.framework.mybatis;
 
+import com.alibaba.druid.pool.DruidDataSource;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 import javax.sql.DataSource;
-
-import org.apache.commons.dbcp.BasicDataSource;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.ibatis.io.VFS;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -55,10 +54,6 @@ public class MybatisRWConfig {
 			sessionFactory.setMapperLocations(resolver.getResources(properties.mapperLocations));
 		}
 
-		// sessionFactory
-		// .setConfigLocation(new
-		// PathMatchingResourcePatternResolver().getResource(properties.configLocation));
-
 		SqlSessionFactory resultSessionFactory = sessionFactory.getObject();
 
 		log.info("*************************sqlSessionFactory:successs:" + resultSessionFactory + "***********************" + properties);
@@ -69,16 +64,15 @@ public class MybatisRWConfig {
 
 	@Primary
 	@Bean(destroyMethod = "close", name = "dataSource")
-	public DataSource dataSource(DataSourceProperties properties) {
+	public DruidDataSource dataSource(@Qualifier(value = "dataSourceProperties") DataSourceProperties properties) {
 
 		log.info("*************************dataSource***********************");
 
-		BasicDataSource dataSource = new BasicDataSource();
+		DruidDataSource dataSource = new DruidDataSource();
 		dataSource.setDriverClassName(properties.driverClassName);
 		dataSource.setUrl(properties.url);
 		dataSource.setUsername(properties.username);
 		dataSource.setPassword(properties.password);
-		dataSource.setMaxIdle(properties.maxIdle);
 		dataSource.setMaxActive(properties.maxActive);
 		dataSource.setMaxWait(properties.maxWait);
 		dataSource.setInitialSize(properties.initialSize);
@@ -86,7 +80,6 @@ public class MybatisRWConfig {
 		dataSource.setRemoveAbandoned(true);
 		dataSource.setTestWhileIdle(true);
 		dataSource.setTimeBetweenEvictionRunsMillis(30000);
-		dataSource.setNumTestsPerEvictionRun(30);
 		dataSource.setMinEvictableIdleTimeMillis(1800000);
 		return dataSource;
 	}

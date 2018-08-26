@@ -6,10 +6,6 @@ public interface ModuleConst {
 		 * 读写property配置
 		 */
 		String DB_CONFIG_RW = "classpath:config/jdbc-rw.properties";
-		/**
-		 * 只读property配置
-		 */
-		String DB_CONFIG_R = "classpath:config/jdbc-r.properties";
 
 		/**
 		 * framework基础配置包

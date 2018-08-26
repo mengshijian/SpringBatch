@@ -28,7 +28,7 @@ import com.cml.learning.framework.constant.ModuleConst;
 @Import({ SimpleBatchConfiguration.class })
 @ComponentScan
 @ComponentScans({ @ComponentScan(ModuleConst.Framwwork.PACKAGE_FRAMEWORK) })
-@PropertySources({ @PropertySource(ModuleConst.Framwwork.DB_CONFIG_RW), @PropertySource(ModuleConst.Framwwork.DB_CONFIG_R) })
+@PropertySources({ @PropertySource(ModuleConst.Framwwork.DB_CONFIG_RW)})
 @PropertySource(ModuleConst.Module.BATCH_PROPERTIES_PLACEHOLDER)
 public @interface BatchAnnotation {
 

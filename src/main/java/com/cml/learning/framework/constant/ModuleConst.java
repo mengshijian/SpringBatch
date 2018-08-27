@@ -20,6 +20,11 @@ public interface ModuleConst {
 		 */
 		String MAPPER_SCAN_RW_PACKAGE = "com.cml.learning.module";
 
+		/**
+		 * 定时任务目录
+		 */
+		String JOB_BASE_PACKAGE = "com.cml.learning.framework.schedled";
+
 	}
 
 	interface Module {

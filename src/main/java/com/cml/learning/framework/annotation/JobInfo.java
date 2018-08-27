@@ -1,14 +1,15 @@
 package com.cml.learning.framework.annotation;
 
 import java.lang.annotation.*;
+import java.util.UUID;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE})
 @Documented
 public @interface JobInfo {
-    String group() default "";
+    String group();
 
-    String name() default "";
+    String name();
 
-    String cronExp() default "";
+    String cronExp();
 }

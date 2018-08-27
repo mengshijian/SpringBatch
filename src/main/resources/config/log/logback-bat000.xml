@@ -56,7 +56,7 @@
 	</appender>
 
 	
-	<logger name="com.cml.learning.batch.configuration.BatchConfiguration" level="DEBUG">
+	<logger name="com.msj.batch.batch.configuration.BatchConfiguration" level="DEBUG">
 		<appender-ref ref="FILE"/>
 	</logger>
 

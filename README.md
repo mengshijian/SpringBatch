@@ -11,8 +11,8 @@
 
 **src/main/java工程结构说明**
 
- -  com.cml.learning.framework 为框架基础配置包，通常情况不做修改
- - com.cml.learning.module 为每个batch对应的模块信息，需要开发者自己实现
+ -  com.msj.batch.framework 为框架基础配置包，通常情况不做修改
+ - com.msj.batch.module 为每个batch对应的模块信息，需要开发者自己实现
 
 **src/main/resource工程结构说明**
 
@@ -30,15 +30,15 @@
  - 每个batch类都需要添加注解@BatchAnnotation用于标识batch运行环境
  - 每个batch对应有自己的Configuration，用于配置SpringBatch运行信息
 
- -  所有batch统一在包(com.cml.learning.module)下，根据batch名称定义包名
-> 如: com.cml.learning.module.batch001
+ -  所有batch统一在包(com.msj.batch.module)下，根据batch名称定义包名
+> 如: com.msj.batch.module.batch001
 
- -  每个batch继承com.cml.learning.framework.module.BaseModule并且实现接口 com.cml.learning.framework.constant.ModuleConst
- - 只读Mapper需要继承com.cml.learning.framework.mybatis.marker.ReadMapper，并且Mapper名称以**ReadMaper结尾**
+ -  每个batch继承com.msj.batch.framework.module.BaseModule并且实现接口 com.msj.batch.framework.constant.ModuleConst
+ - 只读Mapper需要继承com.msj.batch.framework.mybatis.marker.ReadMapper，并且Mapper名称以**ReadMaper结尾**
  - 只读Mapper对应的xml以**read.sql.xml结尾**，且名称为当前batch名，例如bat001的只读xml为：bat001.read.sql.xml
- - 读写Mapper需要继承com.cml.learning.framework.mybatis.marker.WriteMapper,并且Mapper名称以**WriteMapper结尾**
+ - 读写Mapper需要继承com.msj.batch.framework.mybatis.marker.WriteMapper,并且Mapper名称以**WriteMapper结尾**
  - 读写Mapper对应的xml以**write.sql.xml结尾**,并且名称为当前batch名，，例如bat001的读写xml为：bat001.write.sql.xml
- - DB所对应的bean在每个batch下的beans包下，如bat001 对应的bean在包:com.cml.learning.module.bat001.beans下，Mybatis 会自动扫描此包下对应的bean
+ - DB所对应的bean在每个batch下的beans包下，如bat001 对应的bean在包:com.msj.batch.module.bat001.beans下，Mybatis 会自动扫描此包下对应的bean
  - processor,reader,writer都有对应的基类，每个batch下对应的模块都需要继承对应的基类。
  
 **工程打包说明**
